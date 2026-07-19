@@ -3,6 +3,10 @@
 -- Add any additional keymaps here
 local map = vim.keymap.set
 map("n", "<leader>d", "yyP", { noremap = true, silent = true })
+map("n", "<M-j>", ":m .+1<CR>==", { noremap = true, silent = true })
+map("n", "<M-k>", ":m .-2<CR>==", { noremap = true, silent = true })
+map("v", "<M-j>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
+map("v", "<M-k>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 map("n", "<leader>th", function()
     local bufnr = vim.api.nvim_get_current_buf()
     local enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr })
